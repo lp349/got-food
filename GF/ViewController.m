@@ -8,8 +8,10 @@
 
 #import "ViewController.h"
 #import "LogViewController.h"
+#import "GetRec.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) NSDictionary *labels;
 
 @end
 
@@ -18,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.labels = [[NSDictionary alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +37,11 @@
 }
 
 - (IBAction)recFood:(id)sender {
+    GetRec *getRecVC = [[GetRec alloc] initWithLabelsDict:self.labels];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:getRecVC];
+    [self presentViewController:navController animated:YES completion:^{
+        NSLog(@"The navigation controller has been presented");
+    }];
 }
 
 - (IBAction)allFood:(id)sender {

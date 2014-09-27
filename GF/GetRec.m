@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         self.labels = [labelsDict allKeys];
-        self.selectedLabels = [[NSMutableArray init] alloc];
+        self.selectedLabels = [[NSMutableArray alloc] init];
     }
     return self;
 }
