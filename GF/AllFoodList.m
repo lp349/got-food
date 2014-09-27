@@ -90,7 +90,7 @@
     
     NSDateComponents *components = [gregorian components:unitFlags
                                                 fromDate:[NSDate date]
-                                                  toDate:[self.currentFoodNames objectAtIndex:indexPath.row] options:0];
+                                                  toDate:[self.currentExpDates objectAtIndex:indexPath.row] options:0];
     
     NSInteger months = [components month];
     NSInteger days = [components day];
