@@ -20,9 +20,11 @@
 {
     self = [super init];
     if (self) {
-        self.labels = [labelsDict allKeys];
+        //self.labels = [labelsDict allKeys];
+        self.labels = @[@"Breakfast", @"Snacks"];
         self.selectedLabels = [[NSMutableArray alloc] init];
     }
+    
     return self;
 }
 
@@ -32,6 +34,12 @@
     
     self.labelPicker.dataSource = self;
     self.labelPicker.delegate = self;
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
+    
+    [self.navigationItem setLeftBarButtonItem:barButtonItem];
+}
+- (void) dismiss{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
