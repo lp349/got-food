@@ -98,6 +98,9 @@
 				BFD4859219D65EC4006AE251 /* GetRec.xib */,
 				BFD4858F19D65650006AE251 /* FoodItem.h */,
 				BFD4858D19D6561B006AE251 /* FoodItem.m */,
+				DB37F09E19D65E1900727AE8 /* LogViewController.h */,
+				DB37F09F19D65E1900727AE8 /* LogViewController.m */,
+				DB37F0A019D65E1900727AE8 /* LogViewController.xib */,
 				BFD4856F19D653D2006AE251 /* Main.storyboard */,
 				BFD4857219D653D2006AE251 /* Images.xcassets */,
 				BFD4857419D653D2006AE251 /* LaunchScreen.xib */,
@@ -216,6 +219,7 @@
 				BFD4859419D65EC4006AE251 /* GetRec.xib in Resources */,
 				BFD4857619D653D2006AE251 /* LaunchScreen.xib in Resources */,
 				BFD4857319D653D2006AE251 /* Images.xcassets in Resources */,
+				DB37F0A219D65E1900727AE8 /* LogViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD4858E19D6561B006AE251 /* FoodItem.m in Sources */,
+				DB37F0A119D65E1900727AE8 /* LogViewController.m in Sources */,
 				BFD4856E19D653D2006AE251 /* ViewController.m in Sources */,
 				BFD4856B19D653D2006AE251 /* AppDelegate.m in Sources */,
 				BFD4856819D653D2006AE251 /* main.m in Sources */,
@@ -428,6 +433,7 @@
 				BFD4858719D653D2006AE251 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BFD4858819D653D2006AE251 /* Build configuration list for PBXNativeTarget "GFTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +442,7 @@
 				BFD4858A19D653D2006AE251 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

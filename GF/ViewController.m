@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "LogViewController.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)logFood:(id)sender {
+    LogViewController *logVC = [[LogViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:logVC];
+    [self presentViewController:navController animated:YES completion:^{
+        NSLog(@"The navigation controller has been presented");
+    }];
+    
+}
+
+- (IBAction)recFood:(id)sender {
+}
+
+- (IBAction)allFood:(id)sender {
 }
 
 @end
