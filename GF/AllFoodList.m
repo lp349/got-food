@@ -77,22 +77,25 @@
     
     
     cell.textLabel.text = [self.currentFoodNames objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:22];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMMDDDD"];
-    NSString *stringFromDate = [formatter stringFromDate:[self.currentExpDates objectAtIndex:indexPath.row]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expiration Date:%@", stringFromDate];
+    [formatter setDateFormat:@"MMM dd"];
+    NSString *stringFromDate = [formatter stringFromDate:[self.currentFoodNames objectAtIndex:indexPath.row]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expiration Date: %@", stringFromDate];
+    cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:15];
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     NSUInteger unitFlags = NSCalendarUnitMonth | NSCalendarUnitDay;
     
     NSDateComponents *components = [gregorian components:unitFlags
-                                                fromDate:[self.currentExpDates objectAtIndex:indexPath.row]
-                                                  toDate:[NSDate date] options:0];
+                                                fromDate:[NSDate date]
+                                                  toDate:[self.currentFoodNames objectAtIndex:indexPath.row] options:0];
     
     NSInteger months = [components month];
     NSInteger days = [components day];
     if (months == 0 && days < 4) {
+        NSLog(@"Months: %d Days: %d", (int)months, (int)days);
         cell.backgroundColor = [UIColor redColor];
     }
     
