@@ -15,6 +15,8 @@
 		BFD4857619D653D2006AE251 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4857419D653D2006AE251 /* LaunchScreen.xib */; };
 		BFD4858219D653D2006AE251 /* GFTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4858119D653D2006AE251 /* GFTests.m */; };
 		BFD4858E19D6561B006AE251 /* FoodItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4858D19D6561B006AE251 /* FoodItem.m */; };
+		BFD4859319D65EC4006AE251 /* GetRec.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4859119D65EC4006AE251 /* GetRec.m */; };
+		BFD4859419D65EC4006AE251 /* GetRec.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4859219D65EC4006AE251 /* GetRec.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,9 @@
 		BFD4858119D653D2006AE251 /* GFTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFTests.m; sourceTree = "<group>"; };
 		BFD4858D19D6561B006AE251 /* FoodItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodItem.m; sourceTree = "<group>"; };
 		BFD4858F19D65650006AE251 /* FoodItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodItem.h; sourceTree = "<group>"; };
+		BFD4859019D65EC4006AE251 /* GetRec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRec.h; sourceTree = "<group>"; };
+		BFD4859119D65EC4006AE251 /* GetRec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRec.m; sourceTree = "<group>"; };
+		BFD4859219D65EC4006AE251 /* GetRec.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetRec.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +93,9 @@
 				BFD4856A19D653D2006AE251 /* AppDelegate.m */,
 				BFD4856C19D653D2006AE251 /* ViewController.h */,
 				BFD4856D19D653D2006AE251 /* ViewController.m */,
+				BFD4859019D65EC4006AE251 /* GetRec.h */,
+				BFD4859119D65EC4006AE251 /* GetRec.m */,
+				BFD4859219D65EC4006AE251 /* GetRec.xib */,
 				BFD4858F19D65650006AE251 /* FoodItem.h */,
 				BFD4858D19D6561B006AE251 /* FoodItem.m */,
 				BFD4856F19D653D2006AE251 /* Main.storyboard */,
@@ -205,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD4857119D653D2006AE251 /* Main.storyboard in Resources */,
+				BFD4859419D65EC4006AE251 /* GetRec.xib in Resources */,
 				BFD4857619D653D2006AE251 /* LaunchScreen.xib in Resources */,
 				BFD4857319D653D2006AE251 /* Images.xcassets in Resources */,
 			);
@@ -228,6 +237,7 @@
 				BFD4856E19D653D2006AE251 /* ViewController.m in Sources */,
 				BFD4856B19D653D2006AE251 /* AppDelegate.m in Sources */,
 				BFD4856819D653D2006AE251 /* main.m in Sources */,
+				BFD4859319D65EC4006AE251 /* GetRec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
