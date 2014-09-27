@@ -37,7 +37,7 @@
 }
 
 - (IBAction)recFood:(id)sender {
-    GetRec *getRecVC = [[GetRec alloc] initWithLabelsDict:self.labels];
+    GetRec *getRecVC = [[GetRec alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:getRecVC];
     [self presentViewController:navController animated:YES completion:^{
         NSLog(@"The navigation controller has been presented");

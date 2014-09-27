@@ -9,26 +9,28 @@
 #import "GetRec.h"
 #import "FoodItem.h"
 #import "RecItem.h"
+#import "FoodProfile.h"
+#import "RecTableViewController.h"
 
 @interface GetRec ()
 @property (strong, nonatomic) NSArray *labels;
 @property (strong, nonatomic) IBOutlet UIPickerView *labelPicker;
 @property (strong, nonatomic) IBOutlet UILabel *labelText;
 @property (strong, nonatomic) NSMutableSet *selectedLabels;
-@property (strong, nonatomic) NSMutableArray *currentFoods;
+@property (strong, nonatomic) NSArray *currentFoods;
 @property (strong, nonatomic) NSDictionary *history;
 @end
 
 @implementation GetRec
-- (id)initWithLabelsDict:(NSDictionary *)labelsDict currentFoods:(NSMutableArray *)currentFoods andHistory:(NSDictionary *)history
+- (id)init
 {
     self = [super init];
     if (self) {
-        //self.labels = [labelsDict allKeys];
-        self.labels = @[@"Breakfast", @"Snacks", @"Using default dic"];
+        self.labels = [[NSUserDefaults standardUserDefaults] arrayForKey:@"labels"];
+        //self.labels = @[@"Breakfast", @"Snacks", @"Using default dic"];
         self.selectedLabels = [[NSMutableSet alloc] init];
-        self.currentFoods = currentFoods;
-        self.history = history;
+        self.currentFoods = [[NSUserDefaults standardUserDefaults] arrayForKey:@"currentFoods"];
+        self.history = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"history"];
     }
     
     return self;
@@ -62,6 +64,13 @@
     return [self.labels objectAtIndex:row];
 }
 - (IBAction)randomPressed:(id)sender {
+    int randomNumber = arc4random() %([self.currentFoods count])-1;
+    FoodItem *randomFood = [self.currentFoods objectAtIndex:randomNumber];
+    // Call next view
+    RecItem *rec = [[RecItem alloc] initWithFood:randomFood andWeight:1.0];
+    RecTableViewController *recTable = [[RecTableViewController alloc] initWithStyle:UITableViewStylePlain andRec:@[rec]];
+    [self.navigationController pushViewController:recTable animated:YES];
+    
 }
 
 - (IBAction)addLabelPressed:(id)sender {
@@ -120,7 +129,8 @@
             weight += (14-days)/4;
         }
         // Weigh by how commonly this food was eaten
-        // weight += [[self.history objectForKey:food.name] objectAtIndex:0] / 4.;
+        FoodProfile *profile = [self.history objectForKey:food.name];
+        weight += profile.numAccess;
         [result addObject:[[RecItem alloc] initWithFood:food andWeight:weight]];
         
         
@@ -131,6 +141,9 @@
     NSArray *sortedArray = [result sortedArrayUsingDescriptors:sortDescriptors];
     
     NSLog(@"%@", sortedArray);
+    
+    RecTableViewController *recTable = [[RecTableViewController alloc] initWithStyle:UITableViewStylePlain andRec:sortedArray];
+    [self.navigationController pushViewController:recTable animated:YES];
 }
 
 /*

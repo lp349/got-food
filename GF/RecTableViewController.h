@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RecTableViewController : UITableViewController
-
+- (id)initWithStyle:(UITableViewStyle)style andRec:(NSArray *)foodRecs;
 @end
