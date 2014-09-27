@@ -53,6 +53,8 @@
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
     
     [self.navigationItem setLeftBarButtonItem:barButtonItem];
+    NSLog(@"currentfood %@",[[NSUserDefaults standardUserDefaults] arrayForKey:@"currentFoodNames"]);
+
 }
 - (void) dismiss{
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -73,7 +75,7 @@
 }
 - (IBAction)randomPressed:(id)sender {
     if ([self.currentFoods count] != 0) {
-        int randomNumber = arc4random() %([self.currentFoods count])-1;
+        int randomNumber = arc4random() %([self.currentFoods count]);
         FoodItem *randomFood = [self.currentFoods objectAtIndex:randomNumber];
         // Call next view
         RecItem *rec = [[RecItem alloc] initWithFood:randomFood andWeight:1.0];

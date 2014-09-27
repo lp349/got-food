@@ -56,6 +56,10 @@
             }
             
         }
+        [defaults setObject:currentFoodNames forKey:@"currentFoodNames"];
+        [defaults setObject:currentExpDates forKey:@"currentExpDates"];
+        [defaults setObject:currentFoodLabels forKey:@"currentFoodLabels"];
+        [defaults synchronize];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }

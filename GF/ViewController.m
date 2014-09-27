@@ -23,6 +23,8 @@
     //self.labels = [[NSDictionary alloc] init];
     NSMutableArray *labels = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"labels"]mutableCopy];
     NSLog(@"labels %@",[[NSUserDefaults standardUserDefaults] arrayForKey:@"labels"]);
+    NSLog(@"currentfood %@",[[NSUserDefaults standardUserDefaults] arrayForKey:@"currentFoodNames"]);
+    
     //[NSUserDefaults resetStandardUserDefaults];
     //[[NSUserDefaults standardUserDefaults] synchronize];
     if (labels == nil) {

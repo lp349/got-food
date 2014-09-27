@@ -47,6 +47,7 @@
 }
 
 - (void)done {
+    NSLog(@"%@", self.foodSelected);
     FinishTableViewController *finishView = [[FinishTableViewController alloc] initWithStyle:UITableViewStylePlain andFoods:self.foodSelected];
     [self.navigationController pushViewController:finishView animated:YES];
     NSMutableDictionary *historyAccess = [[[NSUserDefaults standardUserDefaults] objectForKey:@"historyAccess"] mutableCopy];
