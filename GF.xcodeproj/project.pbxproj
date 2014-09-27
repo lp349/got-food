@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF2DB74C19D6733900374185 /* RecTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2DB74A19D6733900374185 /* RecTableViewController.m */; };
 		BF2DB74D19D6733900374185 /* RecTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2DB74B19D6733900374185 /* RecTableViewController.xib */; };
+		BF2DB75019D687A900374185 /* RecItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2DB74F19D687A900374185 /* RecItem.m */; };
 		BFD4856819D653D2006AE251 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4856719D653D2006AE251 /* main.m */; };
 		BFD4856B19D653D2006AE251 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4856A19D653D2006AE251 /* AppDelegate.m */; };
 		BFD4856E19D653D2006AE251 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4856D19D653D2006AE251 /* ViewController.m */; };
@@ -37,6 +38,8 @@
 		BF2DB74919D6733900374185 /* RecTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecTableViewController.h; sourceTree = "<group>"; };
 		BF2DB74A19D6733900374185 /* RecTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecTableViewController.m; sourceTree = "<group>"; };
 		BF2DB74B19D6733900374185 /* RecTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecTableViewController.xib; sourceTree = "<group>"; };
+		BF2DB74E19D687A900374185 /* RecItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecItem.h; sourceTree = "<group>"; };
+		BF2DB74F19D687A900374185 /* RecItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecItem.m; sourceTree = "<group>"; };
 		BFD4856219D653D2006AE251 /* GF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD4856619D653D2006AE251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFD4856719D653D2006AE251 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				BFD4859019D65EC4006AE251 /* GetRec.h */,
 				BFD4859119D65EC4006AE251 /* GetRec.m */,
 				BFD4859219D65EC4006AE251 /* GetRec.xib */,
+				BF2DB74E19D687A900374185 /* RecItem.h */,
+				BF2DB74F19D687A900374185 /* RecItem.m */,
 				BF2DB74919D6733900374185 /* RecTableViewController.h */,
 				BF2DB74A19D6733900374185 /* RecTableViewController.m */,
 				BF2DB74B19D6733900374185 /* RecTableViewController.xib */,
@@ -256,6 +261,7 @@
 				DB37F0A119D65E1900727AE8 /* LogViewController.m in Sources */,
 				BFD4856E19D653D2006AE251 /* ViewController.m in Sources */,
 				BFD4856B19D653D2006AE251 /* AppDelegate.m in Sources */,
+				BF2DB75019D687A900374185 /* RecItem.m in Sources */,
 				BFD4856819D653D2006AE251 /* main.m in Sources */,
 				BFD4859319D65EC4006AE251 /* GetRec.m in Sources */,
 			);

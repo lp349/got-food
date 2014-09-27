@@ -7,22 +7,28 @@
 //
 
 #import "GetRec.h"
+#import "FoodItem.h"
+#import "RecItem.h"
 
 @interface GetRec ()
 @property (strong, nonatomic) NSArray *labels;
 @property (strong, nonatomic) IBOutlet UIPickerView *labelPicker;
 @property (strong, nonatomic) IBOutlet UILabel *labelText;
 @property (strong, nonatomic) NSMutableSet *selectedLabels;
+@property (strong, nonatomic) NSMutableArray *currentFoods;
+@property (strong, nonatomic) NSDictionary *history;
 @end
 
 @implementation GetRec
-- (id)initWithLabelsDict:(NSDictionary *)labelsDict
+- (id)initWithLabelsDict:(NSDictionary *)labelsDict currentFoods:(NSMutableArray *)currentFoods andHistory:(NSDictionary *)history
 {
     self = [super init];
     if (self) {
         //self.labels = [labelsDict allKeys];
         self.labels = @[@"Breakfast", @"Snacks", @"Using default dic"];
         self.selectedLabels = [[NSMutableSet alloc] init];
+        self.currentFoods = currentFoods;
+        self.history = history;
     }
     
     return self;
@@ -73,6 +79,58 @@
     NSLog(@"%@", self.selectedLabels);
 }
 - (IBAction)getFoodPressed:(id)sender {
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [self.currentFoods count]; i++) {
+        FoodItem *food = [self.currentFoods objectAtIndex:i];
+        double weight = 0.0;
+        int matchingLabels = 0;
+        for (NSString *label in food.labels) {
+            if ([self.selectedLabels containsObject:label])
+                matchingLabels++;
+        }
+        if (!matchingLabels) {
+            continue;
+        }
+        // Weigh by matching labels
+        weight += matchingLabels;
+        if (food.expDate) {
+            NSCalendar *gregorian = [[NSCalendar alloc]
+                                     initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            
+            NSUInteger unitFlags = NSCalendarUnitMonth | NSCalendarUnitDay;
+            
+            NSDateComponents *components = [gregorian components:unitFlags
+                                                        fromDate:food.expDate
+                                                          toDate:[NSDate date] options:0];
+            
+            NSInteger months = [components month];
+            NSInteger days = [components day];
+            if (months > 0 || days > 14) {
+                days = 14;
+                NSLog(@"Not going to expire");
+            } else {
+                if (months < 0 || days < 0) {
+                    days = 14;
+                    NSLog(@"Already expired");
+                } else {
+                    NSLog(@"About to expire");
+                }
+            }
+            // Weigh by days until expiration
+            weight += (14-days)/4;
+        }
+        // Weigh by how commonly this food was eaten
+        // weight += [[self.history objectForKey:food.name] objectAtIndex:0] / 4.;
+        [result addObject:[[RecItem alloc] initWithFood:food andWeight:weight]];
+        
+        
+    }
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"weight"
+                                                                   ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [result sortedArrayUsingDescriptors:sortDescriptors];
+    
+    NSLog(@"%@", sortedArray);
 }
 
 /*
