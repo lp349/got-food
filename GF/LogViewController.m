@@ -7,12 +7,15 @@
 //
 
 #import "LogViewController.h"
+#import "FoodItem.h"
 
 @interface LogViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *textName;
 @property (strong, nonatomic) IBOutlet UIDatePicker *pickerDate;
 @property (strong, nonatomic) IBOutlet UITextField *textfeature;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerFeature;
+@property (strong, nonatomic) NSMutableArray * currentFoods;
+@property (strong, nonatomic) NSDictionary * history;
 
 @end
 
@@ -24,6 +27,7 @@
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
     
     [self.navigationItem setLeftBarButtonItem:barButtonItem];
+    self.currentFoods = [[NSMutableArray alloc] init];
 }
 - (void) dismiss{
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -34,7 +38,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)add:(id)sender {
-    
+    FoodItem *food = [[FoodItem alloc] initWithName:this.textName.text expDate:<#(NSDate *)#> andLabels:<#(NSMutableSet *)#>
 }
 
 /*

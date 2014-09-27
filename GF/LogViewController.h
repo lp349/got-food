@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LogViewController : UIViewController
+@property (strong, nonatomic) NSMutableArray * currentFoods;
+@property (strong, nonatomic) NSDictionary * history;
+
 
 @end
