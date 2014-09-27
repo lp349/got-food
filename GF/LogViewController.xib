@@ -47,7 +47,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q3D-GO-FRE">
+                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q3D-GO-FRE">
                     <rect key="frame" x="-8" y="296" width="414" height="162"/>
                     <date key="date" timeIntervalSinceReferenceDate="433480316.60415298">
                         <!--2014-09-27 03:11:56 +0000-->
