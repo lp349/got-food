@@ -10,7 +10,7 @@
 
 @interface FoodProfile : NSObject
 @property (strong, nonatomic) NSString *name;
-@property (nonatomic) int numAccess;
+@property (assign, nonatomic) int numAccess;
 @property (strong, nonatomic) NSMutableSet *labels;
 
 - (id)initWithName: (NSString *)name numAccess: (int) numAccess andLabels:(NSMutableSet *)labels; 
