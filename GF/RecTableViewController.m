@@ -79,22 +79,25 @@
     }
     RecItem *rec = [self.foodRecs objectAtIndex:indexPath.row];
     cell.textLabel.text = rec.food.name;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:22];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMMDDDD"];
+    [formatter setDateFormat:@"MMM dd"];
     NSString *stringFromDate = [formatter stringFromDate:rec.food.expDate];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expiration Date:%@", stringFromDate];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expiration Date: %@", stringFromDate];
+    cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:15];
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     NSUInteger unitFlags = NSCalendarUnitMonth | NSCalendarUnitDay;
     
     NSDateComponents *components = [gregorian components:unitFlags
-                                                fromDate:rec.food.expDate
-                                                  toDate:[NSDate date] options:0];
+                                                fromDate:[NSDate date]
+                                                  toDate:rec.food.expDate options:0];
     
     NSInteger months = [components month];
     NSInteger days = [components day];
     if (months == 0 && days < 4) {
+        NSLog(@"Months: %d Days: %d", (int)months, (int)days);
         cell.backgroundColor = [UIColor redColor];
     }
     // Configure the cell...
@@ -122,11 +125,15 @@
 
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     RecItem *rec =[self.foodRecs objectAtIndex:indexPath.row];
-    [self.foodSelected addObject:rec.food];
+    [self.foodSelected removeObject:rec.food];
     NSLog(@"Food selected: %@", self.foodSelected);
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
 
 /*
 // Override to support conditional editing of the table view.

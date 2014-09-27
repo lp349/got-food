@@ -121,8 +121,8 @@
             NSUInteger unitFlags = NSCalendarUnitMonth | NSCalendarUnitDay;
             
             NSDateComponents *components = [gregorian components:unitFlags
-                                                        fromDate:food.expDate
-                                                          toDate:[NSDate date] options:0];
+                                                        fromDate:[NSDate date]
+                                                          toDate:food.expDate options:0];
             
             NSInteger months = [components month];
             NSInteger days = [components day];
