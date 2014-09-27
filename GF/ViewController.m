@@ -12,7 +12,7 @@
 
 @interface ViewController ()
 @property (strong, nonatomic) NSDictionary *labels;
-
+@property (nonatomic) int totalAccess;
 @end
 
 @implementation ViewController
