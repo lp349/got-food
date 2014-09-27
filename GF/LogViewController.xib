@@ -9,6 +9,7 @@
                 <outlet property="pickerDate" destination="Q3D-GO-FRE" id="irn-WS-3SB"/>
                 <outlet property="pickerFeature" destination="RIH-ul-QOD" id="J9s-OR-PPk"/>
                 <outlet property="textFeature" destination="fXa-sA-yp3" id="hYq-Iy-t5Z"/>
+                <outlet property="textFeatureDisplay" destination="Kub-J0-0EQ" id="ub2-hc-I3h"/>
                 <outlet property="textName" destination="5cW-uP-TUX" id="PVH-h3-mSE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -74,7 +75,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAo-Q0-6gK">
-                    <rect key="frame" x="240" y="351" width="84" height="30"/>
+                    <rect key="frame" x="22" y="361" width="84" height="30"/>
                     <state key="normal" title="Add Feature">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -82,8 +83,14 @@
                         <action selector="addFeature:" destination="-1" eventType="touchUpInside" id="iUJ-Nq-pa4"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Features" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kub-J0-0EQ">
+                    <rect key="frame" x="133" y="345" width="228" height="124"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8N-y5-skU">
-                    <rect key="frame" x="113" y="414" width="148" height="30"/>
+                    <rect key="frame" x="104" y="469" width="148" height="30"/>
                     <state key="normal" title="Add This Food Item ! ">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -94,7 +101,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="139.5" y="174.5"/>
+            <point key="canvasLocation" x="139.5" y="235.5"/>
         </view>
     </objects>
 </document>

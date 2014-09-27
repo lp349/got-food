@@ -39,11 +39,10 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];    
+    [self.navigationItem setLeftBarButtonItem:barButtonItem];
     
     self.featuresCurr = [[NSMutableArray alloc] init];
-    
-    [self.navigationItem setLeftBarButtonItem:barButtonItem];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.historyLabels = [[defaults dictionaryForKey:@"historyLabels"] mutableCopy];
@@ -61,6 +60,9 @@
 
     self.pickerFeature.dataSource = self;
     self.pickerFeature.delegate = self;
+    self.textFeatureDisplay.text = @"";
+    self.textFeatureDisplay.lineBreakMode = NSLineBreakByWordWrapping;
+    self.textFeatureDisplay.numberOfLines = 0;
     
 }
 - (void) dismiss{
