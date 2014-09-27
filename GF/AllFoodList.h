@@ -1,5 +1,5 @@
 //
-//  AllFood.h
+//  AllFoodList.h
 //  GF
 //
 //  Created by Amy Chen on 9/27/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AllFood : UIViewController
+@interface AllFoodList : UITableViewController
 
 @end

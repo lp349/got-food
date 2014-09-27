@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LogViewController.h"
 #import "GetRec.h"
+#import "AllFoodList.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) NSDictionary *labels;
@@ -106,6 +107,11 @@ Element: NSArray labels
 }
 
 - (IBAction)allFood:(id)sender {
+    AllFoodList *allList = [[AllFoodList alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:allList];
+    [self presentViewController:navController animated:YES completion:^{
+        NSLog(@"The navigation controller has been presented");
+    }];
 }
 
 @end
