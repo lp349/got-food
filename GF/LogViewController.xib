@@ -9,7 +9,6 @@
                 <outlet property="pickerDate" destination="Q3D-GO-FRE" id="irn-WS-3SB"/>
                 <outlet property="pickerFeature" destination="RIH-ul-QOD" id="J9s-OR-PPk"/>
                 <outlet property="textFeature" destination="fXa-sA-yp3" id="hYq-Iy-t5Z"/>
-                <outlet property="textFeatureDisplay" destination="g9t-tv-Qp2" id="nlQ-40-qfx"/>
                 <outlet property="textName" destination="5cW-uP-TUX" id="PVH-h3-mSE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,27 +19,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xb-Mq-KBp">
-                    <rect key="frame" x="177" y="106" width="55" height="21"/>
+                    <rect key="frame" x="37" y="99" width="55" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expiration Date: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBg-kk-EbY">
-                    <rect key="frame" x="140" y="189" width="128" height="21"/>
+                    <rect key="frame" x="21" y="128" width="128" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Milk" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5cW-uP-TUX">
-                    <rect key="frame" x="110" y="146" width="194" height="30"/>
+                    <rect key="frame" x="114" y="90" width="194" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RIH-ul-QOD">
-                    <rect key="frame" x="182" y="357" width="212" height="162"/>
+                    <rect key="frame" x="176" y="201" width="212" height="162"/>
                 </pickerView>
                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q3D-GO-FRE">
-                    <rect key="frame" x="66" y="212" width="282" height="162"/>
+                    <rect key="frame" x="3" y="157" width="191" height="162"/>
                     <date key="date" timeIntervalSinceReferenceDate="433480316.60415298">
                         <!--2014-09-27 03:11:56 +0000-->
                     </date>
@@ -58,33 +57,24 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Features:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfQ-JV-otq">
-                    <rect key="frame" x="37" y="382" width="72" height="21"/>
+                    <rect key="frame" x="252" y="128" width="72" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Existing features:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4d-P8-hWD">
-                    <rect key="frame" x="21" y="454" width="132" height="21"/>
+                    <rect key="frame" x="222" y="189" width="132" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add new feature labels! " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fXa-sA-yp3">
-                    <rect key="frame" x="8" y="411" width="181" height="30"/>
+                    <rect key="frame" x="208" y="157" width="160" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8N-y5-skU">
-                    <rect key="frame" x="55" y="71" width="37" height="30"/>
-                    <state key="normal" title="Add! ">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="add:" destination="-1" eventType="touchUpInside" id="lQX-U4-EWY"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAo-Q0-6gK">
-                    <rect key="frame" x="140" y="566" width="84" height="30"/>
+                    <rect key="frame" x="240" y="351" width="84" height="30"/>
                     <state key="normal" title="Add Feature">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -92,12 +82,15 @@
                         <action selector="addFeature:" destination="-1" eventType="touchUpInside" id="iUJ-Nq-pa4"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9t-tv-Qp2">
-                    <rect key="frame" x="67" y="584" width="241" height="57"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8N-y5-skU">
+                    <rect key="frame" x="113" y="414" width="148" height="30"/>
+                    <state key="normal" title="Add This Food Item ! ">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="add:" destination="-1" eventType="touchUpInside" id="lQX-U4-EWY"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
