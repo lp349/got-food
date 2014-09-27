@@ -21,6 +21,7 @@
 		BFD4859419D65EC4006AE251 /* GetRec.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4859219D65EC4006AE251 /* GetRec.xib */; };
 		DB37F0A119D65E1900727AE8 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB37F09F19D65E1900727AE8 /* LogViewController.m */; };
 		DB37F0A219D65E1900727AE8 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB37F0A019D65E1900727AE8 /* LogViewController.xib */; };
+		DB37F0A519D682FB00727AE8 /* FoodProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DB37F0A419D682FB00727AE8 /* FoodProfile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		DB37F09E19D65E1900727AE8 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		DB37F09F19D65E1900727AE8 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
 		DB37F0A019D65E1900727AE8 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
+		DB37F0A319D682FB00727AE8 /* FoodProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodProfile.h; sourceTree = "<group>"; };
+		DB37F0A419D682FB00727AE8 /* FoodProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodProfile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				BFD4856D19D653D2006AE251 /* ViewController.m */,
 				BFD4859019D65EC4006AE251 /* GetRec.h */,
 				BFD4859119D65EC4006AE251 /* GetRec.m */,
+				DB37F0A319D682FB00727AE8 /* FoodProfile.h */,
+				DB37F0A419D682FB00727AE8 /* FoodProfile.m */,
 				BFD4859219D65EC4006AE251 /* GetRec.xib */,
 				BF2DB74919D6733900374185 /* RecTableViewController.h */,
 				BF2DB74A19D6733900374185 /* RecTableViewController.m */,
@@ -252,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF2DB74C19D6733900374185 /* RecTableViewController.m in Sources */,
+				DB37F0A519D682FB00727AE8 /* FoodProfile.m in Sources */,
 				BFD4858E19D6561B006AE251 /* FoodItem.m in Sources */,
 				DB37F0A119D65E1900727AE8 /* LogViewController.m in Sources */,
 				BFD4856E19D653D2006AE251 /* ViewController.m in Sources */,
