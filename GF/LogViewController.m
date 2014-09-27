@@ -8,6 +8,8 @@
 
 #import "LogViewController.h"
 #import "FoodItem.h"
+#import "FoodProfile.h"
+
 
 @interface LogViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *textName;
@@ -16,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerFeature;
 //@property (strong, nonatomic) NSMutableArray *currentFoods;
 //@property (strong, nonatomic) NSMutableDictionary *history;
+
 
 @end
 
@@ -29,10 +32,23 @@
     [self.navigationItem setLeftBarButtonItem:barButtonItem];
     self.currentFoods = [[NSMutableArray alloc] init];
     self.history = [[NSMutableDictionary alloc] init];
+    
+    self.pickerFeature.dataSource = self;
+    self.pickerFeature.delegate = self;
 
 }
 - (void) dismiss{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *) pickerView {
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [[self.history objectForKey:self.textName.text].labels count];
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [self.labels objectAtIndex:row];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,10 +65,9 @@
     
     FoodItem *food = [[FoodItem alloc] initWithName:self.textName.text expDate:self.pickerDate.date andLabels:labels];
     [self.currentFoods addObject:food];
+    FoodProfile *foodProf = [[FoodProfile alloc] initWithName:food.name numAccess:1 andLabels:labels];
+    [self.history setObject:foodProf forKey:foodProf.name];
     
-//    NSArray *numAccess = [[NSArray alloc] initWithObjects: 1, nil ];
-  //  NSArray *vect2D = [[NSArray alloc] initWithObjects:  ];
-  //  [self.history setObject:vect2D forKey:self.textName.text];
 }
 
 /*

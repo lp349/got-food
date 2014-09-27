@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LogViewController : UIViewController
+@interface LogViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+- (id)initWithLabelsDict:(NSDictionary *)labelsDict;
+
 @property (strong, nonatomic) NSMutableArray *currentFoods;
 @property (strong, nonatomic) NSMutableDictionary *history;
 
 @end
+
