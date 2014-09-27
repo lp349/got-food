@@ -12,7 +12,7 @@
 @property (strong, nonatomic) NSArray *labels;
 @property (strong, nonatomic) IBOutlet UIPickerView *labelPicker;
 @property (strong, nonatomic) IBOutlet UILabel *labelText;
-@property (strong, nonatomic) NSMutableArray *selectedLabels;
+@property (strong, nonatomic) NSMutableSet *selectedLabels;
 @end
 
 @implementation GetRec
@@ -21,8 +21,8 @@
     self = [super init];
     if (self) {
         //self.labels = [labelsDict allKeys];
-        self.labels = @[@"Breakfast", @"Snacks"];
-        self.selectedLabels = [[NSMutableArray alloc] init];
+        self.labels = @[@"Breakfast", @"Snacks", @"Using default dic"];
+        self.selectedLabels = [[NSMutableSet alloc] init];
     }
     
     return self;
@@ -60,8 +60,17 @@
 
 - (IBAction)addLabelPressed:(id)sender {
     NSString *newLabel = [self.labels objectAtIndex:[self.labelPicker selectedRowInComponent:0]];
-    [self.selectedLabels addObject: newLabel];
-    self.labelText.text = [self.labelText.text stringByAppendingFormat:@", %@", newLabel];
+    if ([self.selectedLabels count] == 0) {
+        [self.selectedLabels addObject:newLabel];
+        self.labelText.text = newLabel;
+        NSLog(@"Label Text: %@", newLabel);
+    }
+    else {
+        if (![self.selectedLabels containsObject:newLabel]) {
+            [self.selectedLabels addObject:newLabel];
+            self.labelText.text = [self.labelText.text stringByAppendingFormat:@", %@", newLabel];
+    }}
+    NSLog(@"%@", self.selectedLabels);
 }
 - (IBAction)getFoodPressed:(id)sender {
 }

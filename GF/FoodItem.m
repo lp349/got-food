@@ -11,7 +11,7 @@
 
 @end
 @implementation FoodItem
-- (id)initWithName:(NSString *)name expDate:(NSDate *)expDate andLabels:(NSSet *)labels {
+- (id)initWithName:(NSString *)name expDate:(NSDate *)expDate andLabels:(NSMutableSet *)labels {
     self = [super init];
     if (self) {
         self.name = name;

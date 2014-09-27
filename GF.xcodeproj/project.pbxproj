@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF2DB74719D672A000374185 /* RecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2DB74519D672A000374185 /* RecViewController.m */; };
+		BF2DB74819D672A000374185 /* RecViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2DB74619D672A000374185 /* RecViewController.xib */; };
 		BFD4856819D653D2006AE251 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4856719D653D2006AE251 /* main.m */; };
 		BFD4856B19D653D2006AE251 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4856A19D653D2006AE251 /* AppDelegate.m */; };
 		BFD4856E19D653D2006AE251 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4856D19D653D2006AE251 /* ViewController.m */; };
@@ -15,10 +17,10 @@
 		BFD4857619D653D2006AE251 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4857419D653D2006AE251 /* LaunchScreen.xib */; };
 		BFD4858219D653D2006AE251 /* GFTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4858119D653D2006AE251 /* GFTests.m */; };
 		BFD4858E19D6561B006AE251 /* FoodItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4858D19D6561B006AE251 /* FoodItem.m */; };
-		DB37F0A119D65E1900727AE8 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB37F09F19D65E1900727AE8 /* LogViewController.m */; };
-		DB37F0A219D65E1900727AE8 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB37F0A019D65E1900727AE8 /* LogViewController.xib */; };
 		BFD4859319D65EC4006AE251 /* GetRec.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4859119D65EC4006AE251 /* GetRec.m */; };
 		BFD4859419D65EC4006AE251 /* GetRec.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4859219D65EC4006AE251 /* GetRec.xib */; };
+		DB37F0A119D65E1900727AE8 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB37F09F19D65E1900727AE8 /* LogViewController.m */; };
+		DB37F0A219D65E1900727AE8 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB37F0A019D65E1900727AE8 /* LogViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF2DB74419D672A000374185 /* RecViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecViewController.h; sourceTree = "<group>"; };
+		BF2DB74519D672A000374185 /* RecViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecViewController.m; sourceTree = "<group>"; };
+		BF2DB74619D672A000374185 /* RecViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecViewController.xib; sourceTree = "<group>"; };
 		BFD4856219D653D2006AE251 /* GF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD4856619D653D2006AE251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFD4856719D653D2006AE251 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,12 +52,12 @@
 		BFD4858119D653D2006AE251 /* GFTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFTests.m; sourceTree = "<group>"; };
 		BFD4858D19D6561B006AE251 /* FoodItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodItem.m; sourceTree = "<group>"; };
 		BFD4858F19D65650006AE251 /* FoodItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodItem.h; sourceTree = "<group>"; };
-		DB37F09E19D65E1900727AE8 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
-		DB37F09F19D65E1900727AE8 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
-		DB37F0A019D65E1900727AE8 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
 		BFD4859019D65EC4006AE251 /* GetRec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRec.h; sourceTree = "<group>"; };
 		BFD4859119D65EC4006AE251 /* GetRec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRec.m; sourceTree = "<group>"; };
 		BFD4859219D65EC4006AE251 /* GetRec.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetRec.xib; sourceTree = "<group>"; };
+		DB37F09E19D65E1900727AE8 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		DB37F09F19D65E1900727AE8 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
+		DB37F0A019D65E1900727AE8 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +106,9 @@
 				BFD4859019D65EC4006AE251 /* GetRec.h */,
 				BFD4859119D65EC4006AE251 /* GetRec.m */,
 				BFD4859219D65EC4006AE251 /* GetRec.xib */,
+				BF2DB74419D672A000374185 /* RecViewController.h */,
+				BF2DB74519D672A000374185 /* RecViewController.m */,
+				BF2DB74619D672A000374185 /* RecViewController.xib */,
 				BFD4858F19D65650006AE251 /* FoodItem.h */,
 				BFD4858D19D6561B006AE251 /* FoodItem.m */,
 				DB37F09E19D65E1900727AE8 /* LogViewController.h */,
@@ -225,6 +233,7 @@
 				BFD4857619D653D2006AE251 /* LaunchScreen.xib in Resources */,
 				BFD4857319D653D2006AE251 /* Images.xcassets in Resources */,
 				DB37F0A219D65E1900727AE8 /* LogViewController.xib in Resources */,
+				BF2DB74819D672A000374185 /* RecViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +255,7 @@
 				DB37F0A119D65E1900727AE8 /* LogViewController.m in Sources */,
 				BFD4856E19D653D2006AE251 /* ViewController.m in Sources */,
 				BFD4856B19D653D2006AE251 /* AppDelegate.m in Sources */,
+				BF2DB74719D672A000374185 /* RecViewController.m in Sources */,
 				BFD4856819D653D2006AE251 /* main.m in Sources */,
 				BFD4859319D65EC4006AE251 /* GetRec.m in Sources */,
 			);
