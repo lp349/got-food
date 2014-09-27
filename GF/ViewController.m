@@ -20,22 +20,66 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.labels = [[NSDictionary alloc] init];
-    NSDictionary *history = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"history"];
-    if (history == nil) {
-        history = [[NSDictionary alloc] init];
-        NSMutableDictionary *history = [[NSMutableDictionary alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:history forKey:@"history"];
+    //self.labels = [[NSDictionary alloc] init];
+    NSMutableArray *labels = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"labels"]mutableCopy];
+    NSLog(@"labels %@",[[NSUserDefaults standardUserDefaults] arrayForKey:@"labels"]);
+    //[NSUserDefaults resetStandardUserDefaults];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
+    if (labels == nil) {
+    
+        NSDictionary *historyLabels = [[NSDictionary alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:historyLabels forKey:@"historyLabels"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        NSMutableArray *labels = [[NSMutableArray alloc] init];
+    
+        NSDictionary *historyAccess = [[NSDictionary alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:historyAccess forKey:@"historyAccess"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
+        labels = [[NSMutableArray alloc] init];
+        [labels addObject: @"Breakfast"];
+        [labels addObject: @"Lunch"];
+        [labels addObject: @"Dinner"];
         [[NSUserDefaults standardUserDefaults] setObject:labels forKey:@"labels"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        NSLog(@"labels local %@",labels);
+
+        NSLog(@"labels default %@",[[NSUserDefaults standardUserDefaults] arrayForKey:@"labels"]);
+
         
-        NSMutableArray *currentFoods = [[NSMutableArray alloc] init];
-        [[NSUserDefaults standardUserDefaults] setObject:currentFoods forKey:@"currentFoods"];
+        NSMutableArray *currentFoodNames = [[NSMutableArray alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:currentFoodNames forKey:@"currentFoodNames"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSMutableArray *currentFoodLabels = [[NSMutableArray alloc] init];
+    [[NSUserDefaults standardUserDefaults] setObject:currentFoodLabels forKey:@"currentFoodLabels"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSMutableArray *currentExpDates = [[NSMutableArray alloc] init];
+    [[NSUserDefaults standardUserDefaults] setObject:currentExpDates forKey:@"currentExpDates"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     }
+    
+    /*
+    NSDictionary *historyLabels
+Key: FoodName
+Value: NSArray of Labels
+    
+    NSDictionary *historyAccess
+Key: FoodName
+Value: NSNumber of numAccess
+    
+    
+    NSMutableArray * currentFoodNames
+    Each element: NSString names
+    NSMutableArray * currentExpDates
+Element: NSDate expDates
+    
+    NSMutableArray * currentFoodLabels
+Element: NSArray labels 
+*/
+    
 }
 
 - (void)didReceiveMemoryWarning {

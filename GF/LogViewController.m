@@ -17,10 +17,18 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *pickerDate;
 @property (strong, nonatomic) IBOutlet UITextField *textFeature;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerFeature;
-@property (strong, nonatomic) NSMutableSet *featuresCurr;
-//@property (strong, nonatomic) NSMutableArray *currentFoods;
-//@property (strong, nonatomic) NSMutableDictionary *history;
+
+@property (strong, nonatomic) NSMutableArray *featuresCurr;
+@property (strong, nonatomic) NSMutableArray *currentFoodLabels;
+@property (strong, nonatomic) NSMutableArray *currentExpDates;
+@property (strong, nonatomic) NSMutableArray *currentFoodNames;
+
+
+@property (strong, nonatomic) NSMutableDictionary *historyLabels;
+@property (strong, nonatomic) NSMutableDictionary *historyAccess;
+
 @property (strong, nonatomic) IBOutlet UILabel *textFeatureDisplay;
+@property (strong, nonatomic) NSMutableArray *labels;
 
 @end
 
@@ -33,18 +41,27 @@
     // Do any additional setup after loading the view from its nib.
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
     
-    [self.navigationItem setLeftBarButtonItem:barButtonItem];
-    self.currentFoods = [[NSMutableArray alloc] init];
-    self.history = [[NSMutableDictionary alloc] init];
+    self.featuresCurr = [[NSMutableArray alloc] init];
     
-    [self.history setObject:[[FoodProfile alloc] init] forKey: @"Breakfast"];
-    [self.history setObject:[[FoodProfile alloc] init] forKey: @"Lunch"];
-    [self.history setObject:[[FoodProfile alloc] init] forKey: @"Dinner"];
+    [self.navigationItem setLeftBarButtonItem:barButtonItem];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.historyLabels = [[defaults dictionaryForKey:@"historyLabels"] mutableCopy];
+    self.historyAccess = [[defaults dictionaryForKey:@"historyAccess"] mutableCopy];
+    
+    
+    self.currentFoodNames =[[defaults arrayForKey:@"currentFoodNames"] mutableCopy];
+    self.currentExpDates =[[defaults arrayForKey:@"currentExpDates"] mutableCopy];
+    self.currentFoodLabels =[[defaults arrayForKey:@"currentFoodLabels"] mutableCopy];
+    
+    self.labels =[[defaults arrayForKey:@"labels"] mutableCopy];
+    
+
+    NSLog(@"self labels %@", self.labels);
 
     self.pickerFeature.dataSource = self;
     self.pickerFeature.delegate = self;
     
-
 }
 - (void) dismiss{
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -54,10 +71,10 @@
     return 1;
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [[self.history allKeys] count];
+    return [self.labels count];
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [[self.history allKeys] objectAtIndex:row];
+    return [self.labels objectAtIndex:row];
 }
 
 
@@ -66,33 +83,88 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)add:(id)sender {
-    NSMutableSet *labels = [[NSMutableSet alloc] init];
+/*    NSMutableSet *labels = [[NSMutableSet alloc] init];
     if (self.textFeature.text){
         [labels addObject: self.textFeature.text];
         NSLog(@"Labels are now %@", labels);
     }else{
         [labels addObject:  [[self.history allKeys] objectAtIndex:[self.pickerFeature selectedRowInComponent:0]]];
-    }
+    }*/
+ 
+    /*
+     NSDictionary *historyLabels
+     Key: FoodName
+     Value: NSArray of Labels
+     
+     NSDictionary *historyAccess
+     Key: FoodName
+     Value: NSNumber of numAccess
+     
+     
+     NSMutableArray * currentFoodNames
+     Each element: NSString names
+     
+     NSMutableArray * currentExpDates
+     Element: NSDate expDates
+     
+     NSMutableArray * currentFoodLabels
+     Element: NSArray labels 
+     */
     
-    FoodItem *food = [[FoodItem alloc] initWithName:self.textName.text expDate:self.pickerDate.date andLabels:labels];
-    [self.currentFoods addObject:food];
-    FoodProfile *foodProf = [[FoodProfile alloc] initWithName:food.name numAccess:1 andLabels:labels];
-    [self.history setObject:foodProf forKey:foodProf.name];
+    //FoodItem *food = [[FoodItem alloc] initWithName:self.textName.text expDate:self.pickerDate.date andLabels:self.featuresCurr];
+    [self.currentFoodNames addObject:self.textName.text];
+    [self.currentExpDates addObject:self.pickerDate.date];
+    [self.currentFoodLabels addObject:self.featuresCurr];
+    
+    //FoodProfile *foodProf = [[FoodProfile alloc] initWithName:food.name numAccess:1 andLabels:self.featuresCurr];
+    [self.historyLabels setObject:self.featuresCurr forKey:self.textName.text];
+    [self.historyAccess setObject:[[NSNumber alloc] initWithInt: 1] forKey:self.textName.text];
+
+    NSLog(@"historyLabels before store %@", self.historyLabels);
+    NSLog(@"historyAccess before store %@", self.historyAccess);
+
+    NSLog(@"labels before store %@", self.labels);
+    
+    NSLog(@"currentFoodNames before store %@", self.currentFoodNames);
+    NSLog(@"currentExpDates before store %@", self.currentExpDates);
+    NSLog(@"currentFoodLabels before store %@", self.currentFoodLabels);
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.labels forKey:@"labels"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentFoodNames forKey:@"currentFoodNames"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentExpDates forKey:@"currentExpDates"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentFoodLabels forKey:@"currentFoodLabels"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.historyLabels forKey:@"historyLabels"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:self.historyAccess forKey:@"historyAccess"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"historyLabels after store %@", [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"historyLabels"]);
+    NSLog(@"historyAccess after store %@", [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"historyAccess"]);
+    
+    
+    //NSLog(@"history before store %@", self.history);
+    //NSLog(@"labels before store %@", self.labels);
+    //NSLog(@"currentFoods before store %@", self.currentFoods);
     
 }
 - (IBAction)addFeature:(id)sender {
-    self.featuresCurr = [[NSMutableSet alloc] init];
-    //self.textFeatureDisplay.text = @"";
-    if (self.textFeature.text){
+    if (![self.textFeature.text  isEqual: @""]){
         [self.featuresCurr addObject: self.textFeature.text];
+        [self.labels addObject: self.textFeature.text];
         self.textFeatureDisplay.text = [self.textFeatureDisplay.text stringByAppendingFormat:@" %@", self.textFeature.text];
-        NSLog(@"Labels are now %@", self.featuresCurr);
+        NSLog(@"Features are now %@", self.featuresCurr);
     }else{
-        
-        [self.featuresCurr addObject:  [[self.history allKeys] objectAtIndex:[self.pickerFeature selectedRowInComponent:0]]];
-        //self.textFeatureDisplay.text = [self.textFeatureDisplay.text stringByAppendingFormat:@" %@", self.textFeature.text];
-        NSLog(@"Labels are now %@", self.featuresCurr);
-        
+        [self.featuresCurr addObject:[self.labels objectAtIndex:[self.pickerFeature selectedRowInComponent:0]]];
+        NSLog(@"picker %@", self.featuresCurr);
+        NSLog(@"Features are now %@", [self.labels objectAtIndex:[self.pickerFeature selectedRowInComponent:0]]);
+        self.textFeatureDisplay.text = [self.textFeatureDisplay.text stringByAppendingFormat:@" %@", [self.labels objectAtIndex:[self.pickerFeature selectedRowInComponent:0]]];
+        NSLog(@"Features are now %@", self.featuresCurr);
     }
     self.textFeature.text = @"";
     //self.textFeatureDisplay.text = [NSString stringWithFormat:@"%@", self.featuresCurr];
