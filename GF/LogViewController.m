@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *textFeature;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerFeature;
 
-@property (strong, nonatomic) NSMutableSet *featuresCurr;
+@property (strong, nonatomic) NSMutableArray *featuresCurr;
 @property (strong, nonatomic) NSMutableArray *currentFoodLabels;
 @property (strong, nonatomic) NSMutableArray *currentExpDates;
 @property (strong, nonatomic) NSMutableArray *currentFoodNames;
@@ -41,7 +41,7 @@
     // Do any additional setup after loading the view from its nib.
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
     
-    self.featuresCurr = [[NSMutableSet alloc] init];
+    self.featuresCurr = [[NSMutableArray alloc] init];
     
     [self.navigationItem setLeftBarButtonItem:barButtonItem];
     
@@ -89,25 +89,69 @@
         NSLog(@"Labels are now %@", labels);
     }else{
         [labels addObject:  [[self.history allKeys] objectAtIndex:[self.pickerFeature selectedRowInComponent:0]]];
-    }
+    }*/
  
+    /*
+     NSDictionary *historyLabels
+     Key: FoodName
+     Value: NSArray of Labels
+     
+     NSDictionary *historyAccess
+     Key: FoodName
+     Value: NSNumber of numAccess
+     
+     
+     NSMutableArray * currentFoodNames
+     Each element: NSString names
+     
+     NSMutableArray * currentExpDates
+     Element: NSDate expDates
+     
+     NSMutableArray * currentFoodLabels
+     Element: NSArray labels 
+     */
     
-    FoodItem *food = [[FoodItem alloc] initWithName:self.textName.text expDate:self.pickerDate.date andLabels:self.featuresCurr];
-    [self.currentFoods addObject:food];
-    FoodProfile *foodProf = [[FoodProfile alloc] initWithName:food.name numAccess:1 andLabels:self.featuresCurr];
-    [self.history setObject:foodProf forKey:foodProf.name];
-    [self.currentFoods addObject:food];
-    NSLog(@"history before store %@", self.history);
+    //FoodItem *food = [[FoodItem alloc] initWithName:self.textName.text expDate:self.pickerDate.date andLabels:self.featuresCurr];
+    [self.currentFoodNames addObject:self.textName.text];
+    [self.currentExpDates addObject:self.pickerDate.date];
+    [self.currentFoodLabels addObject:self.featuresCurr];
+    
+    //FoodProfile *foodProf = [[FoodProfile alloc] initWithName:food.name numAccess:1 andLabels:self.featuresCurr];
+    [self.historyLabels setObject:self.featuresCurr forKey:self.textName.text];
+    [self.historyAccess setObject:[[NSNumber alloc] initWithInt: 1] forKey:self.textName.text];
+
+    NSLog(@"historyLabels before store %@", self.historyLabels);
+    NSLog(@"historyAccess before store %@", self.historyAccess);
+
     NSLog(@"labels before store %@", self.labels);
-    NSLog(@"currentFoods before store %@", self.currentFoods);
     
-    //[[NSUserDefaults standardUserDefaults] setObject:self.history forKey:@"history"];
-    //[[NSUserDefaults standardUserDefaults] synchronize];
+    NSLog(@"currentFoodNames before store %@", self.currentFoodNames);
+    NSLog(@"currentExpDates before store %@", self.currentExpDates);
+    NSLog(@"currentFoodLabels before store %@", self.currentFoodLabels);
+    
     [[NSUserDefaults standardUserDefaults] setObject:self.labels forKey:@"labels"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSUserDefaults standardUserDefaults] setObject:self.currentFoods forKey:@"currentFoods"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentFoodNames forKey:@"currentFoodNames"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-  */  
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentExpDates forKey:@"currentExpDates"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:self.currentFoodLabels forKey:@"currentFoodLabels"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.historyLabels forKey:@"historyLabels"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:self.historyAccess forKey:@"historyAccess"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"historyLabels after store %@", [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"historyLabels"]);
+    NSLog(@"historyAccess after store %@", [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"historyAccess"]);
+    
+    
+    //NSLog(@"history before store %@", self.history);
+    //NSLog(@"labels before store %@", self.labels);
+    //NSLog(@"currentFoods before store %@", self.currentFoods);
+    
 }
 - (IBAction)addFeature:(id)sender {
     if (![self.textFeature.text  isEqual: @""]){
