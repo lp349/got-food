@@ -10,6 +10,8 @@
 		BF2DB74C19D6733900374185 /* RecTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2DB74A19D6733900374185 /* RecTableViewController.m */; };
 		BF2DB74D19D6733900374185 /* RecTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2DB74B19D6733900374185 /* RecTableViewController.xib */; };
 		BF2DB75019D687A900374185 /* RecItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2DB74F19D687A900374185 /* RecItem.m */; };
+		BFBB0DE219D7057900E2BDD0 /* FinishTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB0DE019D7057900E2BDD0 /* FinishTableViewController.m */; };
+		BFBB0DE319D7057900E2BDD0 /* FinishTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFBB0DE119D7057900E2BDD0 /* FinishTableViewController.xib */; };
 		BFD4856819D653D2006AE251 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4856719D653D2006AE251 /* main.m */; };
 		BFD4856B19D653D2006AE251 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4856A19D653D2006AE251 /* AppDelegate.m */; };
 		BFD4856E19D653D2006AE251 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4856D19D653D2006AE251 /* ViewController.m */; };
@@ -41,6 +43,9 @@
 		BF2DB74B19D6733900374185 /* RecTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecTableViewController.xib; sourceTree = "<group>"; };
 		BF2DB74E19D687A900374185 /* RecItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecItem.h; sourceTree = "<group>"; };
 		BF2DB74F19D687A900374185 /* RecItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecItem.m; sourceTree = "<group>"; };
+		BFBB0DDF19D7057900E2BDD0 /* FinishTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishTableViewController.h; sourceTree = "<group>"; };
+		BFBB0DE019D7057900E2BDD0 /* FinishTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishTableViewController.m; sourceTree = "<group>"; };
+		BFBB0DE119D7057900E2BDD0 /* FinishTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishTableViewController.xib; sourceTree = "<group>"; };
 		BFD4856219D653D2006AE251 /* GF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD4856619D653D2006AE251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFD4856719D653D2006AE251 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,6 +124,9 @@
 				BF2DB74919D6733900374185 /* RecTableViewController.h */,
 				BF2DB74A19D6733900374185 /* RecTableViewController.m */,
 				BF2DB74B19D6733900374185 /* RecTableViewController.xib */,
+				BFBB0DDF19D7057900E2BDD0 /* FinishTableViewController.h */,
+				BFBB0DE019D7057900E2BDD0 /* FinishTableViewController.m */,
+				BFBB0DE119D7057900E2BDD0 /* FinishTableViewController.xib */,
 				BFD4858F19D65650006AE251 /* FoodItem.h */,
 				BFD4858D19D6561B006AE251 /* FoodItem.m */,
 				DB37F09E19D65E1900727AE8 /* LogViewController.h */,
@@ -240,6 +248,7 @@
 			files = (
 				BFD4857119D653D2006AE251 /* Main.storyboard in Resources */,
 				BFD4859419D65EC4006AE251 /* GetRec.xib in Resources */,
+				BFBB0DE319D7057900E2BDD0 /* FinishTableViewController.xib in Resources */,
 				BFD4857619D653D2006AE251 /* LaunchScreen.xib in Resources */,
 				BFD4857319D653D2006AE251 /* Images.xcassets in Resources */,
 				BF2DB74D19D6733900374185 /* RecTableViewController.xib in Resources */,
@@ -269,6 +278,7 @@
 				BFD4856B19D653D2006AE251 /* AppDelegate.m in Sources */,
 				BF2DB75019D687A900374185 /* RecItem.m in Sources */,
 				BFD4856819D653D2006AE251 /* main.m in Sources */,
+				BFBB0DE219D7057900E2BDD0 /* FinishTableViewController.m in Sources */,
 				BFD4859319D65EC4006AE251 /* GetRec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

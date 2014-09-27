@@ -17,8 +17,8 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *labelPicker;
 @property (strong, nonatomic) IBOutlet UILabel *labelText;
 @property (strong, nonatomic) NSMutableSet *selectedLabels;
-@property (strong, nonatomic) NSArray *currentFoods;
-@property (strong, nonatomic) NSDictionary *history;
+@property (strong, nonatomic) NSMutableArray *currentFoods;
+@property (strong, nonatomic) NSDictionary *historyAccess;
 @end
 
 @implementation GetRec
@@ -29,8 +29,16 @@
         self.labels = [[NSUserDefaults standardUserDefaults] arrayForKey:@"labels"];
         //self.labels = @[@"Breakfast", @"Snacks", @"Using default dic"];
         self.selectedLabels = [[NSMutableSet alloc] init];
-        self.currentFoods = [[NSUserDefaults standardUserDefaults] arrayForKey:@"currentFoods"];
-        self.history = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"history"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        self.currentFoods = [[NSMutableArray alloc] init];
+        NSArray *currentFoodNames = [defaults arrayForKey:@"currentFoodNames"];
+        NSArray *currentExpDates = [defaults arrayForKey:@"currentExpDates"];
+        NSArray *currentFoodLabels = [defaults arrayForKey:@"currentFoodLabels"];
+        for (int i = 0; i < [currentFoodNames count]; i++){
+            FoodItem *food = [[FoodItem alloc] initWithName:[currentFoodNames objectAtIndex:i] expDate:[currentExpDates objectAtIndex:i] andLabels:[currentFoodLabels objectAtIndex:i]];
+            [self.currentFoods addObject:food];
+        }
+        self.historyAccess = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"historyAccess"];
     }
     
     return self;
@@ -64,12 +72,14 @@
     return [self.labels objectAtIndex:row];
 }
 - (IBAction)randomPressed:(id)sender {
-    int randomNumber = arc4random() %([self.currentFoods count])-1;
-    FoodItem *randomFood = [self.currentFoods objectAtIndex:randomNumber];
-    // Call next view
-    RecItem *rec = [[RecItem alloc] initWithFood:randomFood andWeight:1.0];
-    RecTableViewController *recTable = [[RecTableViewController alloc] initWithStyle:UITableViewStylePlain andRec:@[rec]];
-    [self.navigationController pushViewController:recTable animated:YES];
+    if ([self.currentFoods count] != 0) {
+        int randomNumber = arc4random() %([self.currentFoods count])-1;
+        FoodItem *randomFood = [self.currentFoods objectAtIndex:randomNumber];
+        // Call next view
+        RecItem *rec = [[RecItem alloc] initWithFood:randomFood andWeight:1.0];
+        RecTableViewController *recTable = [[RecTableViewController alloc] initWithStyle:UITableViewStylePlain andRec:@[rec]];
+        [self.navigationController pushViewController:recTable animated:YES];
+    }
     
 }
 
@@ -129,8 +139,8 @@
             weight += (14-days)/4;
         }
         // Weigh by how commonly this food was eaten
-        FoodProfile *profile = [self.history objectForKey:food.name];
-        weight += profile.numAccess;
+        NSNumber *numAccess = [self.historyAccess objectForKey:food.name];
+        weight += [numAccess doubleValue];
         [result addObject:[[RecItem alloc] initWithFood:food andWeight:weight]];
         
         

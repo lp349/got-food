@@ -1,33 +1,29 @@
 //
-//  RecTableViewController.m
+//  FinishTableViewController.m
 //  GF
 //
 //  Created by Linda Pei on 9/27/14.
 //  Copyright (c) 2014 Linda Pei. All rights reserved.
 //
 
-#import "RecTableViewController.h"
 #import "FinishTableViewController.h"
 #import "FoodItem.h"
-#import "RecItem.h"
-#import "FoodProfile.h"
 
-@interface RecTableViewController ()
-@property(strong, nonatomic) NSArray *foodRecs;
-@property(strong, nonatomic) NSMutableArray *foodSelected;
+@interface FinishTableViewController ()
+@property (strong, nonatomic) NSArray *foods;
+@property (strong, nonatomic) NSMutableArray *selectedFoodNames;
 @end
 
-@implementation RecTableViewController
+@implementation FinishTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style andRec:(NSArray *)foodRecs {
+- (id)initWithStyle:(UITableViewStyle)style andFoods:(NSArray *)foods {
     self = [super initWithStyle:style];
-    if (self){
-        self.foodRecs = foodRecs;
-        self.foodSelected = [[NSMutableArray alloc] init];
+    if (self) {
+        self.foods = foods;
+        self.selectedFoodNames = [[NSMutableArray alloc] init];
     }
     return self;
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -36,29 +32,38 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.title = @"Recommendations";
+    self.title = @"What did you finish?";
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                                              style:UIBarButtonItemStylePlain target:self action:@selector(done)];
+                                                                              style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+}
+
+- (void) dismiss{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([self.selectedFoodNames count] > 0) {
+        NSMutableArray *currentFoodNames = [[defaults arrayForKey:@"currentFoodNames"] mutableCopy];
+        NSMutableArray *currentExpDates = [[defaults arrayForKey:@"currentExpDates"] mutableCopy];
+        NSMutableArray *currentFoodLabels = [[defaults arrayForKey:@"currentFoodLabels"] mutableCopy];
+        for (int i = 0; i < [currentFoodNames count]; i++){
+            NSString *foodName = [currentFoodNames objectAtIndex:i];
+            for (NSString *selectedFoodName in self.selectedFoodNames) {
+                if ([foodName isEqualToString:selectedFoodName]) {
+                    [currentFoodNames removeObjectAtIndex:i];
+                    [currentExpDates removeObjectAtIndex:i];
+                    [currentFoodLabels removeObjectAtIndex:i];
+                    break;
+                }
+            }
+            
+        }
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)done {
-    FinishTableViewController *finishView = [[FinishTableViewController alloc] initWithStyle:UITableViewStylePlain andFoods:self.foodSelected];
-    [self.navigationController pushViewController:finishView animated:YES];
-    NSMutableDictionary *historyAccess = [[[NSUserDefaults standardUserDefaults] objectForKey:@"historyAccess"] mutableCopy];
-    for (FoodItem *food in self.foodSelected){
-        NSNumber *numAccess = [historyAccess objectForKey:food.name];
-        numAccess = [[NSNumber alloc] initWithInt:[numAccess intValue] + 1];
-        [historyAccess setObject:numAccess forKey:food.name];
-    }
-    [[NSUserDefaults standardUserDefaults] setObject:historyAccess forKey:@"historyAccess"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -68,34 +73,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.foodRecs count];
+    return [self.foods count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
-    RecItem *rec = [self.foodRecs objectAtIndex:indexPath.row];
-    cell.textLabel.text = rec.food.name;
+    FoodItem *food = [self.foods objectAtIndex:indexPath.row];
+    cell.textLabel.text = food.name;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMMDDDD"];
-    NSString *stringFromDate = [formatter stringFromDate:rec.food.expDate];
+    NSString *stringFromDate = [formatter stringFromDate:food.expDate];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Expiration Date:%@", stringFromDate];
-    NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    
-    NSUInteger unitFlags = NSCalendarUnitMonth | NSCalendarUnitDay;
-    
-    NSDateComponents *components = [gregorian components:unitFlags
-                                                fromDate:rec.food.expDate
-                                                  toDate:[NSDate date] options:0];
-    
-    NSInteger months = [components month];
-    NSInteger days = [components day];
-    if (months == 0 && days < 4) {
-        cell.backgroundColor = [UIColor redColor];
-    }
     // Configure the cell...
     
     return cell;
@@ -105,27 +97,16 @@
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];*/
-    RecItem *rec =[self.foodRecs objectAtIndex:indexPath.row];
-    [self.foodSelected addObject:rec.food];
-    NSLog(@"Food selected: %@", self.foodSelected);
+    FoodItem *food =[self.foods objectAtIndex:indexPath.row];
+    [self.selectedFoodNames addObject:food.name];
+    NSLog(@"Food selected: %@", self.selectedFoodNames);
 }
 
-- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    RecItem *rec =[self.foodRecs objectAtIndex:indexPath.row];
-    [self.foodSelected addObject:rec.food];
-    NSLog(@"Food selected: %@", self.foodSelected);
-    
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    FoodItem *food = [self.foods objectAtIndex:indexPath.row];
+    [self.selectedFoodNames removeObject:food.name];
+     NSLog(@"Food selected: %@", self.selectedFoodNames);
 }
-
 
 /*
 // Override to support conditional editing of the table view.
