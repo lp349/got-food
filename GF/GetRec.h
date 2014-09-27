@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GetRec : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
-- (id)initWithLabelsDict:(NSDictionary *)labelsDict;
+- (id)initWithLabelsDict:(NSDictionary *)labelsDict currentFoods:(NSMutableArray *)currentFoods andHistory:(NSDictionary *)history;
 
 @end
