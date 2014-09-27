@@ -16,6 +16,6 @@
 @interface FoodItem : NSObject
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSDate *expDate;
-@property (strong, nonatomic) NSMutableArray *labels;
+@property (strong, nonatomic) NSSet *labels;
 
 @end
