@@ -21,6 +21,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.labels = [[NSDictionary alloc] init];
+    NSDictionary *history = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"history"];
+    if (history == nil) {
+        history = [[NSDictionary alloc] init];
+        NSMutableDictionary *history = [[NSMutableDictionary alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:history forKey:@"history"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSMutableArray *labels = [[NSMutableArray alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:labels forKey:@"labels"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSMutableArray *currentFoods = [[NSMutableArray alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:currentFoods forKey:@"currentFoods"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
