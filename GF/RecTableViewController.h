@@ -1,5 +1,5 @@
 //
-//  RecViewController.h
+//  RecTableViewController.h
 //  GF
 //
 //  Created by Linda Pei on 9/27/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecViewController : UIViewController
+@interface RecTableViewController : UITableViewController
 
 @end
