@@ -10,8 +10,8 @@
 
 @interface LogViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (strong, nonatomic) NSMutableArray *currentFoods;
-@property (strong, nonatomic) NSMutableDictionary *history;
+// @property (strong, nonatomic) NSMutableArray *currentFoods;
+// @property (strong, nonatomic) NSMutableDictionary *history;
 
 @end
 
