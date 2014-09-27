@@ -9,6 +9,10 @@
 #import "LogViewController.h"
 
 @interface LogViewController ()
+@property (strong, nonatomic) IBOutlet UITextField *textName;
+@property (strong, nonatomic) IBOutlet UIDatePicker *pickerDate;
+@property (strong, nonatomic) IBOutlet UITextField *textfeature;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerFeature;
 
 @end
 
@@ -28,6 +32,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)add:(id)sender {
+    
 }
 
 /*
