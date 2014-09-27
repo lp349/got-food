@@ -83,14 +83,6 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)add:(id)sender {
-/*    NSMutableSet *labels = [[NSMutableSet alloc] init];
-    if (self.textFeature.text){
-        [labels addObject: self.textFeature.text];
-        NSLog(@"Labels are now %@", labels);
-    }else{
-        [labels addObject:  [[self.history allKeys] objectAtIndex:[self.pickerFeature selectedRowInComponent:0]]];
-    }*/
- 
     /*
      NSDictionary *historyLabels
      Key: FoodName
@@ -110,24 +102,23 @@
      NSMutableArray * currentFoodLabels
      Element: NSArray labels 
      */
+    UIAlertView *alertView;
     
-    //FoodItem *food = [[FoodItem alloc] initWithName:self.textName.text expDate:self.pickerDate.date andLabels:self.featuresCurr];
+    for (NSString *name in self.currentFoodNames){
+        if ([self.textName.text isEqualToString: name]){
+            NSString *m = @"This item exist!";
+            alertView = [[UIAlertView alloc] initWithTitle:@"Duplicate Item" message:m delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Cancel", nil];
+            [alertView show];
+            return;
+        }
+    }
+    
     [self.currentFoodNames addObject:self.textName.text];
     [self.currentExpDates addObject:self.pickerDate.date];
     [self.currentFoodLabels addObject:self.featuresCurr];
-    
-    //FoodProfile *foodProf = [[FoodProfile alloc] initWithName:food.name numAccess:1 andLabels:self.featuresCurr];
+
     [self.historyLabels setObject:self.featuresCurr forKey:self.textName.text];
     [self.historyAccess setObject:[[NSNumber alloc] initWithInt: 1] forKey:self.textName.text];
-
-    NSLog(@"historyLabels before store %@", self.historyLabels);
-    NSLog(@"historyAccess before store %@", self.historyAccess);
-
-    NSLog(@"labels before store %@", self.labels);
-    
-    NSLog(@"currentFoodNames before store %@", self.currentFoodNames);
-    NSLog(@"currentExpDates before store %@", self.currentExpDates);
-    NSLog(@"currentFoodLabels before store %@", self.currentFoodLabels);
     
     [[NSUserDefaults standardUserDefaults] setObject:self.labels forKey:@"labels"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -143,18 +134,14 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[NSUserDefaults standardUserDefaults] setObject:self.historyAccess forKey:@"historyAccess"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
+    /*
     NSLog(@"historyLabels after store %@", [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"historyLabels"]);
     NSLog(@"historyAccess after store %@", [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"historyAccess"]);
-    
-    
-    //NSLog(@"history before store %@", self.history);
-    //NSLog(@"labels before store %@", self.labels);
-    //NSLog(@"currentFoods before store %@", self.currentFoods);
+    */
     
 }
 - (IBAction)addFeature:(id)sender {
-    if (![self.textFeature.text  isEqual: @""]){
+    if (![self.textFeature.text  isEqualToString: @""]){
         [self.featuresCurr addObject: self.textFeature.text];
         [self.labels addObject: self.textFeature.text];
         self.textFeatureDisplay.text = [self.textFeatureDisplay.text stringByAppendingFormat:@" %@", self.textFeature.text];
@@ -167,7 +154,6 @@
         NSLog(@"Features are now %@", self.featuresCurr);
     }
     self.textFeature.text = @"";
-    //self.textFeatureDisplay.text = [NSString stringWithFormat:@"%@", self.featuresCurr];
 }
 
 /*
