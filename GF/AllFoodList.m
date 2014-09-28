@@ -131,11 +131,12 @@
     NSInteger months = [components month];
     NSInteger days = [components day];
     if (months == 0 && days < 4) {
+        NSLog(@"Months: %d Days: %d", (int)months, (int)days);
         cell.backgroundColor = [UIColor redColor];
     } else {
         cell.backgroundColor = [UIColor whiteColor];
     }
-    
+//    
     
     return cell;
 }
