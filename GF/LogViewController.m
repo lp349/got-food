@@ -140,6 +140,10 @@
     NSLog(@"historyLabels after store %@", [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"historyLabels"]);
     NSLog(@"historyAccess after store %@", [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"historyAccess"]);
     */
+    self.featuresCurr = [[NSMutableArray alloc] init];
+    self.textFeatureDisplay.text = @"";
+    self.textName.text = @"";
+    self.textFeature.text = @"";
     
 }
 - (IBAction)addFeature:(id)sender {

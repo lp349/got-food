@@ -73,6 +73,8 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.accessoryView.hidden = YES;
         }
+        self.selectedFoodNames = [[NSMutableArray alloc] init];
+        self.navigationItem.rightBarButtonItem.title = @"Delete";
         [self.tableView reloadData];
     }
 }
