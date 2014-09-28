@@ -16,38 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Just went grocery shopping?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw7-aa-8M5">
-                                <rect key="frame" x="96" y="64" width="223" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just went grocery shopping?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw7-aa-8M5">
+                                <rect key="frame" x="98" y="70" width="223" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hungry?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-zb-Fsz">
-                                <rect key="frame" x="178" y="193" width="76" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hungry?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-zb-Fsz">
+                                <rect key="frame" x="185" y="248" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Check out your food inventory!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq2-5S-tu8">
-                                <rect key="frame" x="89" y="217" width="237" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check out your food inventory!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq2-5S-tu8">
+                                <rect key="frame" x="91" y="289" width="237" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log your newly purchased food here. =)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7so-Ke-lCk">
-                                <rect key="frame" x="64" y="82" width="305" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log your newly purchased food here. =)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7so-Ke-lCk">
+                                <rect key="frame" x="66" y="111" width="305" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Check out ALL your current food!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg1-qC-DnU">
-                                <rect key="frame" x="79" y="321" width="256" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check out ALL your current food!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg1-qC-DnU">
+                                <rect key="frame" x="81" y="426" width="256" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dng-zt-ngu">
-                                <rect key="frame" x="156" y="222" width="120" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dng-zt-ngu">
+                                <rect key="frame" x="160" y="330" width="117" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Got Food???">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,8 +56,8 @@
                                     <action selector="recFood:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HSv-ep-BpO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q22-uV-ZCo">
-                                <rect key="frame" x="134" y="328" width="146" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q22-uV-ZCo">
+                                <rect key="frame" x="165" y="467" width="88" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="All Foods!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,8 +66,8 @@
                                     <action selector="allFood:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ic8-xW-1HQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ej6-Ie-nZA">
-                                <rect key="frame" x="156" y="111" width="101" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ej6-Ie-nZA">
+                                <rect key="frame" x="159" y="152" width="99" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Got Food!!!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,6 +78,32 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="7so-Ke-lCk" secondAttribute="centerX" constant="-11.5" id="0ZL-ZM-iBQ"/>
+                            <constraint firstAttribute="centerY" secondItem="7so-Ke-lCk" secondAttribute="centerY" constant="275.5" id="21C-0T-zDJ"/>
+                            <constraint firstAttribute="centerX" secondItem="Ej6-Ie-nZA" secondAttribute="centerX" constant="-1.5" id="738-LO-paj"/>
+                            <constraint firstItem="dng-zt-ngu" firstAttribute="top" secondItem="Hq2-5S-tu8" secondAttribute="bottom" constant="20" id="FNN-Bg-unR"/>
+                            <constraint firstAttribute="centerX" secondItem="Hq2-5S-tu8" secondAttribute="centerX" constant="-2.5" id="Kwg-Ce-A1F"/>
+                            <constraint firstItem="7so-Ke-lCk" firstAttribute="top" secondItem="Gw7-aa-8M5" secondAttribute="bottom" constant="20" id="VtL-Up-5hB"/>
+                            <constraint firstAttribute="centerX" secondItem="q22-uV-ZCo" secondAttribute="centerX" constant="-2" id="YbT-c8-gEB"/>
+                            <constraint firstAttribute="centerX" secondItem="qg1-qC-DnU" secondAttribute="centerX" constant="-2" id="b0Z-IZ-nID"/>
+                            <constraint firstItem="Hq2-5S-tu8" firstAttribute="top" secondItem="vLa-zb-Fsz" secondAttribute="bottom" constant="20" id="jXX-kC-56W"/>
+                            <constraint firstItem="Ej6-Ie-nZA" firstAttribute="top" secondItem="7so-Ke-lCk" secondAttribute="bottom" constant="20" id="oXH-7T-6f0"/>
+                            <constraint firstItem="qg1-qC-DnU" firstAttribute="top" secondItem="dng-zt-ngu" secondAttribute="bottom" constant="60" id="oqM-MW-tmF"/>
+                            <constraint firstItem="q22-uV-ZCo" firstAttribute="top" secondItem="qg1-qC-DnU" secondAttribute="bottom" constant="20" id="pgy-IQ-nbU"/>
+                            <constraint firstItem="Gw7-aa-8M5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="50" id="qto-hE-7ez"/>
+                            <constraint firstItem="vLa-zb-Fsz" firstAttribute="top" secondItem="Ej6-Ie-nZA" secondAttribute="bottom" constant="60" id="wH4-n8-d4C"/>
+                            <constraint firstAttribute="centerX" secondItem="dng-zt-ngu" secondAttribute="centerX" constant="-11" id="yE3-nB-9jo"/>
+                            <constraint firstAttribute="centerX" secondItem="Gw7-aa-8M5" secondAttribute="centerX" constant="-2.5" id="zDc-cE-P5M"/>
+                            <constraint firstAttribute="centerX" secondItem="vLa-zb-Fsz" secondAttribute="centerX" constant="-11" id="zNO-1h-mOC"/>
+                            <constraint firstAttribute="centerX" secondItem="7so-Ke-lCk" secondAttribute="centerX" constant="-9.5" id="zRe-lb-lNX"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="21C-0T-zDJ"/>
+                                <exclude reference="zRe-lb-lNX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>

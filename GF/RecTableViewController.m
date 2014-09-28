@@ -15,6 +15,7 @@
 @interface RecTableViewController ()
 @property(strong, nonatomic) NSArray *foodRecs;
 @property(strong, nonatomic) NSMutableArray *foodSelected;
+
 @end
 
 @implementation RecTableViewController
@@ -30,7 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.allowsMultipleSelection = YES;
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -120,13 +122,19 @@
     [self.navigationController pushViewController:detailViewController animated:YES];*/
     RecItem *rec =[self.foodRecs objectAtIndex:indexPath.row];
     [self.foodSelected addObject:rec.food];
-    NSLog(@"Food selected: %@", self.foodSelected);
+    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+    tableViewCell.accessoryView.hidden = NO;
+    tableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"Done (%d)", (int)[self.foodSelected count]];
 }
 
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     RecItem *rec =[self.foodRecs objectAtIndex:indexPath.row];
     [self.foodSelected removeObject:rec.food];
-    NSLog(@"Food selected: %@", self.foodSelected);
+    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+    tableViewCell.accessoryView.hidden = YES;
+    tableViewCell.accessoryType = UITableViewCellAccessoryNone;
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"Done (%d)", (int)[self.foodSelected count]];
     
 }
 

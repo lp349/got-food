@@ -15,6 +15,8 @@
 @property (strong,nonatomic) NSArray *currentExpDates;
 @property (strong,nonatomic) NSArray *currentFoodLabels;
 
+@property (strong, nonatomic) NSMutableArray *selectedFoodNames;
+
 @end
 
 @implementation AllFoodList
@@ -22,23 +24,57 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.allowsMultipleSelection = YES;
     
     self.title = @"All Food";
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
     [self.navigationItem setLeftBarButtonItem:barButtonItem];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(delete)];
 
     self.currentFoodNames = [[NSUserDefaults standardUserDefaults] arrayForKey:@"currentFoodNames"];
     self.currentExpDates = [[NSUserDefaults standardUserDefaults] arrayForKey:@"currentExpDates"];
     self.currentFoodLabels = [[NSUserDefaults standardUserDefaults] arrayForKey:@"currentFoodLabels"];
-    NSLog(@"%@", self.currentFoodNames);
+    self.selectedFoodNames = [[NSMutableArray alloc] init];
 
     
+}
+
+- (void) delete{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([self.selectedFoodNames count] > 0) {
+        NSLog(@"Before Food Names: %@", self.currentFoodNames);
+        NSMutableArray *currentFoodNames = [[defaults arrayForKey:@"currentFoodNames"] mutableCopy];
+        NSMutableArray *currentExpDates = [[defaults arrayForKey:@"currentExpDates"] mutableCopy];
+        NSMutableArray *currentFoodLabels = [[defaults arrayForKey:@"currentFoodLabels"] mutableCopy];
+        for (int i = 0; i < [currentFoodNames count]; i++){
+            NSString *foodName = [currentFoodNames objectAtIndex:i];
+            for (NSString *selectedFoodName in self.selectedFoodNames) {
+                if ([foodName isEqualToString:selectedFoodName]) {
+                    [currentFoodNames removeObjectAtIndex:i];
+                    [currentExpDates removeObjectAtIndex:i];
+                    [currentFoodLabels removeObjectAtIndex:i];
+                    break;
+                }
+            }
+            
+        }
+        [defaults setObject:currentFoodNames forKey:@"currentFoodNames"];
+        [defaults setObject:currentExpDates forKey:@"currentExpDates"];
+        [defaults setObject:currentFoodLabels forKey:@"currentFoodLabels"];
+        [defaults synchronize];
+        
+        self.currentFoodNames = [[NSUserDefaults standardUserDefaults] arrayForKey:@"currentFoodNames"];
+        self.currentExpDates = [[NSUserDefaults standardUserDefaults] arrayForKey:@"currentExpDates"];
+        self.currentFoodLabels = [[NSUserDefaults standardUserDefaults] arrayForKey:@"currentFoodLabels"];
+        NSLog(@"After Food Names: %@", self.currentFoodNames);
+        for (int row = 0, rowCount = (int)[self.tableView numberOfRowsInSection:0]; row < rowCount; ++row) {
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.accessoryView.hidden = YES;
+        }
+        [self.tableView reloadData];
+    }
 }
 
 - (void) dismiss{
@@ -77,28 +113,33 @@
     
     
     cell.textLabel.text = [self.currentFoodNames objectAtIndex:indexPath.row];
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:22];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMMDDDD"];
+    [formatter setDateFormat:@"MMM dd"];
     NSString *stringFromDate = [formatter stringFromDate:[self.currentExpDates objectAtIndex:indexPath.row]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expiration Date:%@", stringFromDate];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expiration Date: %@", stringFromDate];
+    cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:15];
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     NSUInteger unitFlags = NSCalendarUnitMonth | NSCalendarUnitDay;
     
     NSDateComponents *components = [gregorian components:unitFlags
-                                                fromDate:[self.currentExpDates objectAtIndex:indexPath.row]
-                                                  toDate:[NSDate date] options:0];
+                                                fromDate:[NSDate date]
+                                                  toDate:[self.currentExpDates objectAtIndex:indexPath.row] options:0];
     
     NSInteger months = [components month];
     NSInteger days = [components day];
     if (months == 0 && days < 4) {
         cell.backgroundColor = [UIColor redColor];
+    } else {
+        cell.backgroundColor = [UIColor whiteColor];
     }
     
     
     return cell;
 }
+
 
 
 /*
@@ -135,21 +176,33 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self.selectedFoodNames addObject:[self.currentFoodNames objectAtIndex:indexPath.row]];
+    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+    tableViewCell.accessoryView.hidden = NO;
+    tableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"Delete (%d)", (int)[self.selectedFoodNames count]];
 }
-*/
+
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.selectedFoodNames removeObject:[self.currentFoodNames objectAtIndex:indexPath.row]];
+    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+    tableViewCell.accessoryView.hidden = YES;
+    tableViewCell.accessoryType = UITableViewCellAccessoryNone;
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"Delete (%d)", (int)[self.selectedFoodNames count]];
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
+
 
 /*
 #pragma mark - Navigation

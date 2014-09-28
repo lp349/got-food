@@ -26,6 +26,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.allowsMultipleSelection = YES;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -34,7 +35,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.title = @"What did you finish?";
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Finished"
                                                                               style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
 }
 
@@ -88,10 +89,12 @@
     }
     FoodItem *food = [self.foods objectAtIndex:indexPath.row];
     cell.textLabel.text = food.name;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:22];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMMDDDD"];
+    [formatter setDateFormat:@"MMM dd"];
     NSString *stringFromDate = [formatter stringFromDate:food.expDate];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expiration Date:%@", stringFromDate];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Expiration Date: %@", stringFromDate];
+    cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:15];
     // Configure the cell...
     
     return cell;
@@ -104,12 +107,25 @@
     FoodItem *food =[self.foods objectAtIndex:indexPath.row];
     [self.selectedFoodNames addObject:food.name];
     NSLog(@"Food selected: %@", self.selectedFoodNames);
+    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+    tableViewCell.accessoryView.hidden = NO;
+    tableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"Finished (%d)", (int)[self.selectedFoodNames count]];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     FoodItem *food = [self.foods objectAtIndex:indexPath.row];
     [self.selectedFoodNames removeObject:food.name];
      NSLog(@"Food selected: %@", self.selectedFoodNames);
+    UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+    tableViewCell.accessoryView.hidden = YES;
+    tableViewCell.accessoryType = UITableViewCellAccessoryNone;
+        self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"Finished (%d)", (int)[self.selectedFoodNames count]];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
 }
 
 /*
