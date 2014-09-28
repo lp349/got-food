@@ -113,7 +113,7 @@
     
     
     cell.textLabel.text = [self.currentFoodNames objectAtIndex:indexPath.row];
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:22];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:22];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMM dd"];
     NSString *stringFromDate = [formatter stringFromDate:[self.currentExpDates objectAtIndex:indexPath.row]];
