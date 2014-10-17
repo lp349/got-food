@@ -10,10 +10,12 @@
 #import "LogViewController.h"
 #import "GetRec.h"
 #import "AllFoodList.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ViewController ()
 @property (strong, nonatomic) NSDictionary *labels;
 @property (nonatomic) int totalAccess;
+@property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
 @end
 
 @implementation ViewController
@@ -112,6 +114,17 @@ Element: NSArray labels
     [self presentViewController:navController animated:YES completion:^{
         NSLog(@"The navigation controller has been presented");
     }];
+}
+- (IBAction)videoButton:(id)sender {
+    
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"fox2" ofType:@"mov"]];
+    
+    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL: url];
+    
+    [self.view addSubview:self.moviePlayer.view];
+    [self.moviePlayer setFullscreen:YES animated:NO];
+    self.moviePlayer.shouldAutoplay = YES;
+    
 }
 
 @end

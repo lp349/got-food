@@ -3,7 +3,7 @@
 //  GF
 //
 //  Created by Linda Pei on 9/27/14.
-//  Copyright (c) 2014 Linda Pei. All rights reserved.
+//  Copyright (c) 2014 Linda Pei & Amy Chen. All rights reserved.
 //
 
 #import "RecTableViewController.h"
