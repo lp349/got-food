@@ -39,6 +39,9 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"Got Food !!!";
+    
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];    
     [self.navigationItem setLeftBarButtonItem:barButtonItem];
     
@@ -148,6 +151,7 @@
 }
 - (IBAction)addFeature:(id)sender {
     if (![self.textFeature.text  isEqualToString: @""]){
+        NSLog(@"there is a text!");
         [self.featuresCurr addObject: self.textFeature.text];
         [self.labels addObject: self.textFeature.text];
         self.textFeatureDisplay.text = [self.textFeatureDisplay.text stringByAppendingFormat:@" %@", self.textFeature.text];

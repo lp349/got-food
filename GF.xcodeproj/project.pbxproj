@@ -22,8 +22,6 @@
 		BFD4858E19D6561B006AE251 /* FoodItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4858D19D6561B006AE251 /* FoodItem.m */; };
 		BFD4859319D65EC4006AE251 /* GetRec.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD4859119D65EC4006AE251 /* GetRec.m */; };
 		BFD4859419D65EC4006AE251 /* GetRec.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFD4859219D65EC4006AE251 /* GetRec.xib */; };
-		DB1B47FA19F17F1A00E27AAD /* LogFoodName&ExpDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1B47F819F17F1900E27AAD /* LogFoodName&ExpDateViewController.m */; };
-		DB1B47FB19F17F1A00E27AAD /* LogFoodName&ExpDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB1B47F919F17F1A00E27AAD /* LogFoodName&ExpDateViewController.xib */; };
 		DB1B47FD19F1858A00E27AAD /* fox2.mov in Resources */ = {isa = PBXBuildFile; fileRef = DB1B47FC19F1858A00E27AAD /* fox2.mov */; };
 		DB37F0A119D65E1900727AE8 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB37F09F19D65E1900727AE8 /* LogViewController.m */; };
 		DB37F0A219D65E1900727AE8 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB37F0A019D65E1900727AE8 /* LogViewController.xib */; };
@@ -69,9 +67,6 @@
 		BFD4859019D65EC4006AE251 /* GetRec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRec.h; sourceTree = "<group>"; };
 		BFD4859119D65EC4006AE251 /* GetRec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRec.m; sourceTree = "<group>"; };
 		BFD4859219D65EC4006AE251 /* GetRec.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetRec.xib; sourceTree = "<group>"; };
-		DB1B47F719F17F1900E27AAD /* LogFoodName&ExpDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LogFoodName&ExpDateViewController.h"; sourceTree = "<group>"; };
-		DB1B47F819F17F1900E27AAD /* LogFoodName&ExpDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LogFoodName&ExpDateViewController.m"; sourceTree = "<group>"; };
-		DB1B47F919F17F1A00E27AAD /* LogFoodName&ExpDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "LogFoodName&ExpDateViewController.xib"; sourceTree = "<group>"; };
 		DB1B47FC19F1858A00E27AAD /* fox2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = fox2.mov; sourceTree = "<group>"; };
 		DB37F09E19D65E1900727AE8 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		DB37F09F19D65E1900727AE8 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
@@ -150,9 +145,6 @@
 				BFD4856F19D653D2006AE251 /* Main.storyboard */,
 				BFD4857219D653D2006AE251 /* Images.xcassets */,
 				BFD4857419D653D2006AE251 /* LaunchScreen.xib */,
-				DB1B47F719F17F1900E27AAD /* LogFoodName&ExpDateViewController.h */,
-				DB1B47F819F17F1900E27AAD /* LogFoodName&ExpDateViewController.m */,
-				DB1B47F919F17F1A00E27AAD /* LogFoodName&ExpDateViewController.xib */,
 				DB1B47FC19F1858A00E27AAD /* fox2.mov */,
 				BFD4856519D653D2006AE251 /* Supporting Files */,
 			);
@@ -272,7 +264,6 @@
 				BFD4857619D653D2006AE251 /* LaunchScreen.xib in Resources */,
 				BFD4857319D653D2006AE251 /* Images.xcassets in Resources */,
 				DB37F0B919D734A700727AE8 /* AllFoodList.xib in Resources */,
-				DB1B47FB19F17F1A00E27AAD /* LogFoodName&ExpDateViewController.xib in Resources */,
 				BF2DB74D19D6733900374185 /* RecTableViewController.xib in Resources */,
 				DB37F0A219D65E1900727AE8 /* LogViewController.xib in Resources */,
 			);
@@ -293,7 +284,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF2DB74C19D6733900374185 /* RecTableViewController.m in Sources */,
-				DB1B47FA19F17F1A00E27AAD /* LogFoodName&ExpDateViewController.m in Sources */,
 				DB37F0A519D682FB00727AE8 /* FoodProfile.m in Sources */,
 				BFD4858E19D6561B006AE251 /* FoodItem.m in Sources */,
 				DB37F0A119D65E1900727AE8 /* LogViewController.m in Sources */,
